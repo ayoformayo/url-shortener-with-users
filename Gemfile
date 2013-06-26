@@ -16,8 +16,6 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
-gem 'debugger'
-# gem 'open-uri'
 
 group :test do
   gem 'faker'

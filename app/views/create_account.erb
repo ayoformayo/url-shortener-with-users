@@ -1,0 +1,9 @@
+<h1>Create an Account</h1>
+<p><%= @message if @message %></p>
+
+<form id="account_form" action='/create_account' method='post'>
+Name: <input type="text" name='name'><br>
+Email: <input type="text" name='email'><br>
+Password: <input type="password" name='password'><br>
+<input type="submit" value="Submit">
+  </form>

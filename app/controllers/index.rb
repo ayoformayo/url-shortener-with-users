@@ -4,7 +4,12 @@ end
 
 post '/url' do
   @url = Url.create(params)# create a new Url
-  erb :show_url
+  if @url.errors.any?
+    @errors = @url.errors
+    erb :create_url
+  else
+    erb :show_url
+  end
 end
 
 # e.g., /q6bda

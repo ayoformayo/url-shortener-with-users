@@ -1,4 +1,7 @@
 class Url < ActiveRecord::Base
+  has_many :urls_users
+  has_many :users, :through => :urls_users
+  
   before_create :generate_tiny_url
 
   validate :url_works

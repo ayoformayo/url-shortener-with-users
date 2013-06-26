@@ -1,13 +1,34 @@
-<% if @errors %>
+<% if @url_errors || @urls_user_errors %>
 <ul>
-  <% @errors.full_messages.each do |error| %>
+  <% if @url_errors %>
+  <% @url_errors.full_messages.each do |error| %>
     <li><%= error %></li>
+  <% end %>
+  <% end %>
+  <% if @urls_user_errors %>
+  <% @urls_user_errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
   <% end %>
 </ul>
 <% end %>
 
-<%= @error_message %> 
-<form id="login_form" action='/url' method='post'>
+<form id="login_form" action='/create_url' method='post'>
   URL: <input type="text" name='url'><br>
   <input type="submit" value="Submit">
 </form>
+
+<% if @user %>
+  <table>
+    <tr>
+      <td> Shortened URl</td>
+      <td> Normal URL</td>
+    </tr>
+    <% @user.urls.each do |url|%>
+    <tr>
+   <td><%=url.tiny_url%></td>
+   <td><%=url.url%></td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>
